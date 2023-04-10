@@ -18,7 +18,7 @@ void app_main(void)
     }
     printf("Absolute difference: %f\n", abs_diff);
 
-    int num_runs = 10000;
+    int num_runs = 1000;
     while(true){
         printf("Starting %d runs\n", num_runs);
         int64_t start = esp_timer_get_time();

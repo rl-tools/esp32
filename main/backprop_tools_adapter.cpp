@@ -6,13 +6,14 @@
 #include <layer_in_c/nn/layers/dense/operations_esp32/dsp.h>
 #include <layer_in_c/nn/layers/dense/operations_esp32/opt.h>
 #include <layer_in_c/nn_models/mlp/operations_generic.h>
-#include <test_layer_in_c_nn_models_mlp_persist_code.h>
-#include <test_layer_in_c_nn_models_mlp_evaluation.h>
+#include "data/test_layer_in_c_nn_models_mlp_persist_code.h"
+#include "data/test_layer_in_c_nn_models_mlp_evaluation.h"
 
 
 namespace lic = layer_in_c;
 
-using DEVICE = lic::devices::esp32::OPT<lic::devices::DefaultESP32Specification>;
+using DEV_SPEC = lic::devices::DefaultESP32Specification<lic::devices::esp32::Hardware::C3>;
+using DEVICE = lic::devices::esp32::Generic<DEV_SPEC>;
 DEVICE device;
 using TI = typename mlp_1::SPEC::TI;
 using DTYPE = typename mlp_1::SPEC::T;
