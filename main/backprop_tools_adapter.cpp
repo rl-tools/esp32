@@ -12,8 +12,8 @@
 
 namespace lic = layer_in_c;
 
-using DEV_SPEC = lic::devices::DefaultESP32Specification<lic::devices::esp32::Hardware::C3>;
-using DEVICE = lic::devices::esp32::OPT<DEV_SPEC>;
+using DEV_SPEC = lic::devices::DefaultESP32Specification<lic::devices::esp32::Hardware::ORIG>;
+using DEVICE = lic::devices::esp32::Generic<DEV_SPEC>;
 DEVICE device;
 using TI = typename mlp_1::SPEC::TI;
 using DTYPE = typename mlp_1::SPEC::T;
