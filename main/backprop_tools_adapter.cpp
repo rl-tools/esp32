@@ -41,3 +41,15 @@ void backprop_tools_run_single_sample(float* output_mem){
     auto input_sample = lic::view(device, input::container, lic::matrix::ViewSpec<1, mlp_1::SPEC::INPUT_DIM>{}, 0, 0);
     lic::evaluate(device, mlp_1::mlp, input_sample, output, buffers);
 }
+float backprop_tools_run_single_sample_check_output(float* output_mem){
+    static_assert(BATCH_SIZE >= 1);
+    lic::MatrixDynamic<lic::matrix::Specification<DTYPE, TI, 1, mlp_1::SPEC::HIDDEN_DIM, mlp_1::SPEC::MEMORY_LAYOUT>> buffer_tick = {(DTYPE*)buffer_tick_memory};
+    lic::MatrixDynamic<lic::matrix::Specification<DTYPE, TI, 1, mlp_1::SPEC::HIDDEN_DIM, mlp_1::SPEC::MEMORY_LAYOUT>> buffer_tock = {(DTYPE*)buffer_tock_memory};
+
+    decltype(mlp_1::mlp)::template Buffers<1> buffers = {buffer_tick, buffer_tock};
+    lic::MatrixDynamic<lic::matrix::Specification<DTYPE, TI, 1, mlp_1::SPEC::OUTPUT_DIM, lic::matrix::layouts::RowMajorAlignment<TI, 1>>> output = {(DTYPE*)output_mem};
+    auto input_sample = lic::view(device, input::container, lic::matrix::ViewSpec<1, mlp_1::SPEC::INPUT_DIM>{}, 0, 0);
+    lic::evaluate(device, mlp_1::mlp, input_sample, output, buffers);
+    auto abs_diff = lic::abs_diff(device, output, lic::view(device, expected_output::container, lic::matrix::ViewSpec<1, mlp_1::SPEC::OUTPUT_DIM>{}, 0, 0));
+    return abs_diff;
+}

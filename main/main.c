@@ -9,15 +9,16 @@
 float output_mem[BACKPROP_TOOLS_BATCH_SIZE * BACKPROP_TOOLS_OUTPUT_DIM];
 void app_main(void)
 {
-    backprop_tools_run_single_sample((float*)output_mem);
+    float abs_diff = backprop_tools_run_single_sample_check_output((float*)output_mem);
     for(int batch_i = 0; batch_i < BACKPROP_TOOLS_BATCH_SIZE; batch_i++){
         for(int col_i = 0; col_i < BACKPROP_TOOLS_OUTPUT_DIM; col_i++){
             printf("%+5.5f ", output_mem[batch_i * BACKPROP_TOOLS_OUTPUT_DIM + col_i]);
         }
         printf("\n");
     }
-    int num_runs = 100;
+    printf("Absolute difference: %f\n", abs_diff);
 
+    int num_runs = 10000;
     while(true){
         printf("Starting %d runs\n", num_runs);
         int64_t start = esp_timer_get_time();
