@@ -12,7 +12,7 @@
 
 namespace lic = layer_in_c;
 
-using DEV_SPEC = lic::devices::DefaultESP32Specification<lic::devices::esp32::Hardware::ORIG>;
+using DEV_SPEC = lic::devices::DefaultESP32Specification<lic::devices::esp32::Hardware::DEFAULT>;
 using DEVICE = lic::devices::esp32::OPT<DEV_SPEC>;
 DEVICE device;
 using TI = typename mlp_1::SPEC::TI;

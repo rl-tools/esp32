@@ -1,0 +1,1 @@
+Remember to disable the task watchdog timer (using menuconfig) otherwise the execution will be interrupted frequently and the device will reboot

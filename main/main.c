@@ -18,6 +18,20 @@ void app_main(void)
     }
     printf("Absolute difference: %f\n", abs_diff);
 
+    // to verify the accuracy of the internal timer:
+    {
+        int64_t start = esp_timer_get_time();
+        int interval = 10000000;
+        int current_interval = 0;
+        while(true){
+            int64_t current = esp_timer_get_time();
+            if (current_interval * interval < current - start) {
+                current_interval++;
+                printf("Time taken: %lld us\n", current - start);
+            }
+        }
+    }
+
     int num_runs = 1000;
     while(true){
         printf("Starting %d runs\n", num_runs);
