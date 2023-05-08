@@ -1,16 +1,16 @@
 
-#define LAYER_IN_C_DISABLE_DYNAMIC_MEMORY_ALLOCATION
+#define BACKPROP_TOOLS_DISABLE_DYNAMIC_MEMORY_ALLOCATION
 #include "backprop_tools_adapter.h"
 
-#include <layer_in_c/operations/esp32.h>
-#include <layer_in_c/nn/layers/dense/operations_esp32/dsp.h>
-#include <layer_in_c/nn/layers/dense/operations_esp32/opt.h>
-#include <layer_in_c/nn_models/mlp/operations_generic.h>
-#include "data/test_layer_in_c_nn_models_mlp_persist_code.h"
-#include "data/test_layer_in_c_nn_models_mlp_evaluation.h"
+#include <backprop_tools/operations/esp32.h>
+#include <backprop_tools/nn/layers/dense/operations_esp32/dsp.h>
+#include <backprop_tools/nn/layers/dense/operations_esp32/opt.h>
+#include <backprop_tools/nn_models/mlp/operations_generic.h>
+#include "data/test_backprop_tools_nn_models_mlp_persist_code.h"
+#include "data/test_backprop_tools_nn_models_mlp_evaluation.h"
 
 
-namespace lic = layer_in_c;
+namespace lic = backprop_tools;
 
 using DEV_SPEC = lic::devices::DefaultESP32Specification<lic::devices::esp32::Hardware::DEFAULT>;
 using DEVICE = lic::devices::esp32::OPT<DEV_SPEC>;

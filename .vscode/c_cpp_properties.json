@@ -9,8 +9,8 @@
                 "${config:idf.espAdfPath}/components/**",
                 "${config:idf.espAdfPathWin}/components/**",
                 "${workspaceFolder}/**",
-                "/home/jonas/phd/projects/rl_for_control/layer-in-c/include",
-                "/home/jonas/phd/projects/rl_for_control/layer-in-c/data"
+                "/home/jonas/phd/projects/rl_for_control/backprop_tools/include",
+                "/home/jonas/phd/projects/rl_for_control/backprop_tools/data"
             ],
             "browse": {
                 "path": [
@@ -19,8 +19,8 @@
                     "${config:idf.espAdfPath}/components/**",
                     "${config:idf.espAdfPathWin}/components/**",
                     "${workspaceFolder}",
-                    "/home/jonas/phd/projects/rl_for_control/layer-in-c/include",
-                    "/home/jonas/phd/projects/rl_for_control/layer-in-c/data"
+                    "/home/jonas/phd/projects/rl_for_control/backprop_tools/include",
+                    "/home/jonas/phd/projects/rl_for_control/backprop_tools/data"
                 ],
                 "limitSymbolsToIncludedHeaders": false
             }
